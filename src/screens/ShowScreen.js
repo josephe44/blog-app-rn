@@ -11,8 +11,8 @@ export default function ShowScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>ShowScreen</Text>
       <Text>{blogPost.title}</Text>
+      <Text>{blogPost.content}</Text>
     </View>
   );
 }

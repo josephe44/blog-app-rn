@@ -1,22 +1,21 @@
 import React, { useState, useContext } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-} from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Context } from "../context/BlogContext";
 import BlogPostForm from "../components/BlogPostForm";
 
 export default function EditScreen({ navigation }) {
   const id = navigation.getParam("id");
 
-  const { state } = useContext(Context);
+  const { state, editBlogPost } = useContext(Context);
   const blogPost = state.find((blogPost) => blogPost.id === id);
 
   const [title, setTitle] = useState(blogPost?.title);
   const [content, setContent] = useState(blogPost?.content);
 
-  const handleAddBlogPost = (title, content) => {};
+  const handleAddBlogPost = (title, content) => {
+    editBlogPost(id, title, content);
+    navigation.pop();
+  };
 
   return (
     <View style={styles.container}>
@@ -26,6 +25,7 @@ export default function EditScreen({ navigation }) {
         setTitle={setTitle}
         content={content}
         setContent={setContent}
+        onSubmit={handleAddBlogPost}
       />
     </View>
   );

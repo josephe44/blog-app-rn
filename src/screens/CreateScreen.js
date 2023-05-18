@@ -1,8 +1,5 @@
 import React, { useState, useContext } from "react";
-import {
-  View,
-  StyleSheet,
-} from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Context } from "../context/BlogContext";
 import BlogPostForm from "../components/BlogPostForm";
 
@@ -23,9 +20,9 @@ export default function CreateScreen({ navigation }) {
         setTitle={setTitle}
         content={content}
         setContent={setContent}
-        handleFun={handleAddBlogPost}
+        onSubmit={handleAddBlogPost}
       />
-    </View> 
+    </View>
   );
 }
 

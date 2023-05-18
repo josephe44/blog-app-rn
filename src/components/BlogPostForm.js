@@ -12,7 +12,7 @@ export default function BlogPostForm({
   setTitle,
   content,
   setContent,
-  handleFun,
+  onSubmit,
 }) {
   return (
     <View style={styles.container}>
@@ -37,7 +37,7 @@ export default function BlogPostForm({
 
       <TouchableOpacity
         style={styles.addBtn}
-        onPress={() => handleFun(title, content)}
+        onPress={() => onSubmit(title, content)}
       >
         <Text style={styles.btnText}>Save</Text>
       </TouchableOpacity>
